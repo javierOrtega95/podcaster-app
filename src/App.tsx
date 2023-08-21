@@ -1,10 +1,15 @@
+import { useRoutes } from 'react-router'
 import './App.css'
+import { routes } from './routes'
+import { Header } from './components/header/Header'
 
 function App () {
+  const routesElement = useRoutes(routes)
   return (
-    <main>
-      <h1>Podcaster</h1>
-    </main>
+    <>
+      <Header />
+      {routesElement}
+    </>
   )
 }
 
