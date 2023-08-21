@@ -1,5 +1,6 @@
-import { type RouteObject, createBrowserRouter } from 'react-router-dom'
+import { type RouteObject, createBrowserRouter, Link } from 'react-router-dom'
 import { PodcastList } from './views/PodcastList'
+import { Header } from './components/header/Header'
 
 const PATHS = {
   DEFAULT: '/',
@@ -14,7 +15,11 @@ export const routes: RouteObject[] = [
   },
   {
     path: PATHS.PODCAST_DETAIL,
-    element: <h1>Podcast Detail</h1>
+    element: (
+      <Link to='/'>
+        <h1>Podcast Detail</h1>
+      </Link>
+    )
   },
   {
     path: PATHS.EPISODE_DETAIL,
@@ -22,6 +27,11 @@ export const routes: RouteObject[] = [
   }
 ]
 
-const router = createBrowserRouter(routes)
+export const router = createBrowserRouter([
+  {
+    element: <Header />,
+    children: routes
+  }
+])
 
 export default router
