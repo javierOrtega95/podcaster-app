@@ -17,9 +17,34 @@ body {
   line-height: 1.42857;
 }
 
+:root {
+  --primary: #0092B4;
+  --primary-light: #00B3B8;
+  --primary-dark: #437099;
+  --color-gray: #d2d2d2;
+  --color-dark: #020305;
+
+  --font-size-label: 0.75rem;
+  --font-size-default: 0.875rem;
+  --font-size-title: 1.125rem;
+
+  --box-shadow-card: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --box-shadow-input: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+
+  --border-radius-small: 0.375rem;
+  --border-radius-default: 0.5rem;
+  --border-radius-full: 9999px;
+
+}
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
 }
+
+a {
+  text-decoration: none;
+}
+

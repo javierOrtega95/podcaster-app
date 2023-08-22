@@ -1,4 +1,12 @@
 .header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.5px solid var(--color-gray);
+  font-weight: 100;
+}
+
+.header h1 {
+  color: var(--primary);
+  font-weight: 600;
 }
