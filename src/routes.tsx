@@ -1,6 +1,7 @@
-import { type RouteObject, createBrowserRouter, Link } from 'react-router-dom'
-import { PodcastList } from './views/PodcastList'
+import { type RouteObject, createBrowserRouter } from 'react-router-dom'
+import { Home } from './views/podcastList/Home'
 import { Header } from './components/header/Header'
+import { getTopPodcasts } from './services/podcast'
 
 const PATHS = {
   DEFAULT: '/',
@@ -11,19 +12,14 @@ const PATHS = {
 export const routes: RouteObject[] = [
   {
     path: PATHS.DEFAULT,
-    element: <PodcastList />
+    loader: getTopPodcasts,
+    element: <Home />
   },
   {
-    path: PATHS.PODCAST_DETAIL,
-    element: (
-      <Link to='/'>
-        <h1>Podcast Detail</h1>
-      </Link>
-    )
+    path: PATHS.PODCAST_DETAIL
   },
   {
-    path: PATHS.EPISODE_DETAIL,
-    element: <h1>Episode Detail</h1>
+    path: PATHS.EPISODE_DETAIL
   }
 ]
 
