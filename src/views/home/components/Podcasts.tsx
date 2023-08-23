@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+import { Card } from '../../../components/card/Card'
 import { type Podcast } from '../../../models/Podcast.model'
 
 interface Props {
@@ -20,15 +22,17 @@ export function ListOfPodcasts ({ podcasts }: Props) {
   return (
     <div className='podcast-grid'>
       {podcasts.map((podcast) => (
-        <div key={podcast.id} className='podcast-card'>
-          <div className='podcast-image'>
-            <img src={podcast.image} alt={podcast.name} />
-          </div>
-          <div className='podcast-body'>
-            <span className='title'>{podcast.name}</span>
-            <p className='author'>Author: {podcast.artist}</p>
-          </div>
-        </div>
+        <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+          <Card className='podcast-card'>
+            <div className='podcast-image'>
+              <img src={podcast.image} alt={podcast.name} />
+            </div>
+            <div className='podcast-body'>
+              <p className='title'>{podcast.name}</p>
+              <p className='author'>Author: {podcast.artist}</p>
+            </div>
+          </Card>
+        </Link>
       ))}
     </div>
   )

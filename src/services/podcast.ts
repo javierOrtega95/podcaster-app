@@ -11,7 +11,6 @@ export const getTopPodcasts = async () => {
       throw new Error('Error fetching podcasts')
     }
     const json: TopPodcastApiResponse = await response.json()
-    console.log(podcastsAdapter(json.feed.entry))
 
     return podcastsAdapter(json.feed.entry)
   } catch (error) {

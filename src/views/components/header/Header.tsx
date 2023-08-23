@@ -1,7 +1,7 @@
-import { Outlet, useNavigation } from 'react-router'
+import { useNavigation } from 'react-router'
 import { Link } from 'react-router-dom'
+import { Loader } from '../../../components/loader/Loader'
 import './header.css'
-import { Loader } from '../loader/Loader'
 
 export function Header () {
   const { state } = useNavigation()
@@ -10,12 +10,13 @@ export function Header () {
   return (
     <>
       <header className='header'>
-        <Link to='/'>
-          <h1>Podcaster</h1>
-        </Link>
+        <nav>
+          <Link to='/'>
+            <h1>Podcaster</h1>
+          </Link>
+        </nav>
         {isLoading && <Loader />}
       </header>
-      <Outlet />
     </>
   )
 }
