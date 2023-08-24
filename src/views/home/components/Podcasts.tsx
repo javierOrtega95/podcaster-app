@@ -23,7 +23,7 @@ export function ListOfPodcasts ({ podcasts }: Props) {
     <div className='podcast-grid'>
       {podcasts.map((podcast) => (
         <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-          <Card className='podcast-card'>
+          <Card>
             <div className='podcast-image'>
               <img src={podcast.image} alt={podcast.name} />
             </div>
