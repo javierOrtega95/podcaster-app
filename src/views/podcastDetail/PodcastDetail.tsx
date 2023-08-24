@@ -12,7 +12,7 @@ export function PodcastDetail () {
   const { id, episodes } = podcastDetail
 
   return (
-    <section className='podcast-detail'>
+    <section className='podcast-detail grid'>
       <PodcastSidebar podcastDetail={podcastDetail} />
       <article className='podcast-episodes'>
         <Card>

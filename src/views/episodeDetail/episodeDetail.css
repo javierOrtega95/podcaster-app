@@ -1,7 +1,4 @@
 .episode-detail {
-  display: grid;
-  gap: 8rem;
-  grid-template-columns: 1fr 3fr;
   margin-top: 32px;
 }
 

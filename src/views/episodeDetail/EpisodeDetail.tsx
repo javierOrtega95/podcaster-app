@@ -18,7 +18,7 @@ export function EpisodeDetail () {
   }
 
   return (
-    <section className='episode-detail'>
+    <section className='episode-detail grid'>
       <PodcastSidebar podcastDetail={podcastDetail} />
       <article className='podcast-audio'>
         <Card>
