@@ -5,7 +5,7 @@ export function podcastsAdapter (podcasts: ApiReponsePodcast[]): Podcast[] {
   return podcasts.map((podcast: ApiReponsePodcast) => ({
     id: podcast.id.attributes['im:id'],
     name: podcast['im:name'].label,
-    image: podcast['im:image']?.[2].label,
-    artist: podcast['im:artist']?.label
+    image: podcast['im:image']?.[2].label as string,
+    artist: podcast['im:artist']?.label as string
   }))
 }
