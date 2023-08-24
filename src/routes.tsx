@@ -1,6 +1,8 @@
 import { createBrowserRouter, type RouteObject } from 'react-router-dom'
-import { Layout } from './views/components/layout/layout'
 import { Home } from './views/home/Home'
+import { PodcastDetail } from './views/podcastDetail/PodcastDetail'
+import { Layout } from './views/components/layout/Layout'
+import { getPodcastDetail } from './services/podcast'
 
 const PATHS = {
   DEFAULT: '/',
@@ -14,7 +16,11 @@ export const routes: RouteObject[] = [
     element: <Home />
   },
   {
-    path: PATHS.PODCAST_DETAIL
+    path: PATHS.PODCAST_DETAIL,
+    element: <PodcastDetail />,
+    loader: async ({ params }) => {
+      return await getPodcastDetail(params.podcastId as string)
+    }
   },
   {
     path: PATHS.EPISODE_DETAIL

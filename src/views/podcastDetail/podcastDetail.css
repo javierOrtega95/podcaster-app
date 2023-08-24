@@ -1,0 +1,60 @@
+.podcast-detail {
+  display: grid;
+  gap: 8rem;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 32px;
+}
+
+.podcast-detail h2 {
+  padding-left: 1rem;
+  margin: 0px;
+}
+
+.podcast-detail .title {
+  text-align: left;
+  font-weight: bold;
+  color: var(--color-dark);
+}
+
+.podcast-episodes .card:first-child {
+  
+  margin-bottom: 12px;
+}
+
+.podcast-detail table {
+  width: 100%;
+  text-align: left;
+  padding:1rem;
+}
+
+.podcast-detail table thead tr {
+  margin-bottom: 4px;
+}
+
+.podcast-detail table thead tr th:first-child {
+  padding-left: 0.5rem;
+}
+
+.podcast-detail table thead tr th:last-child {
+  text-align: center;
+}
+
+.podcast-detail table tr td:last-child {
+  text-align: center;
+}
+
+.podcast-detail table tbody tr td:first-child {
+  padding-left: 0.5rem;
+}
+
+.podcast-detail table tbody tr td {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.podcast-detail table tbody tr:nth-child(even) {
+  background: var(--color-white);
+}
+.podcast-detail table tbody tr:nth-child(odd) {
+  background: rgb(249, 249, 249);
+}

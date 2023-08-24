@@ -22,6 +22,7 @@ body {
   --primary-light: #00b3b8;
   --primary-dark: #437099;
   --color-gray: #7b7474;
+  --color-light-gray: #e5e7eb;
   --color-dark: #020305;
   --color-white: #fff;
 
@@ -55,4 +56,8 @@ a {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+}
+
+.emphasized {
+  font-style: italic;
 }
