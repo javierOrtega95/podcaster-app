@@ -1,6 +1,8 @@
 import { podcastsAdapter } from '../adapters/podcast'
 import { podcastXMLToJSON } from '../helpers/podcastXMLToJSON'
+import { saveToStorage } from '../logic/storage'
 import { type TopPodcastApiResponse } from '../models/API.model'
+import { type PodcastDetail } from '../models/PodcastDetail.model'
 
 const API_URL = 'https://itunes.apple.com'
 
@@ -36,7 +38,9 @@ export const getPodcastDetail = async (podcastId: string) => {
 
     const feedUrl = json.results[0].feedUrl
 
-    const podcastDetail = await getPodcastFeed(feedUrl)
+    const podcastDetail = await getPodcastFeed(feedUrl, podcastId) as PodcastDetail
+
+    saveToStorage({ dataKey: podcastId, data: podcastDetail, lastAPIFetchKey: 'lastPodcastDetailFetch' })
 
     return podcastDetail
   } catch (error) {
@@ -44,7 +48,7 @@ export const getPodcastDetail = async (podcastId: string) => {
   }
 }
 
-const getPodcastFeed = async (feedUrl: string) => {
+const getPodcastFeed = async (feedUrl: string, podcastId: string) => {
   try {
     const response = await fetch(`${PROXY_SERVER_URL}${feedUrl}`)
 
@@ -54,7 +58,7 @@ const getPodcastFeed = async (feedUrl: string) => {
 
     const text = await response.text()
 
-    const podcastDetail = podcastXMLToJSON(text)
+    const podcastDetail = podcastXMLToJSON(text, podcastId)
 
     return podcastDetail
   } catch (error) {

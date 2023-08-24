@@ -1,6 +1,7 @@
 import { type PodcastDetail } from '../models/PodcastDetail.model'
+import { formatDateToDdMmYyyy } from '../utils/date'
 
-export function podcastXMLToJSON (text: string) {
+export function podcastXMLToJSON (text: string, podcastId: string) {
   const parser = new window.DOMParser()
 
   const data = parser.parseFromString(text, 'text/xml')
@@ -21,17 +22,19 @@ export function podcastXMLToJSON (text: string) {
 
   const episodes = episodeElements.map((episodeElement) => {
     const title = episodeElement.querySelector('title')?.textContent as string
+
     const date = new Date(episodeElement.querySelector('pubDate')?.textContent as string)
     const duration = episodeElement.querySelector('duration')?.textContent as string
 
     return {
       title,
-      date,
+      date: formatDateToDdMmYyyy(date),
       duration
     }
   })
 
   const podcastDetail: PodcastDetail = {
+    id: podcastId,
     title,
     author,
     imageUrl,

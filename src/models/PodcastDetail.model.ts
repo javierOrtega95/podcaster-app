@@ -1,4 +1,5 @@
 export interface PodcastDetail {
+  id: string
   title: string
   author: string
   imageUrl: string
@@ -8,6 +9,6 @@ export interface PodcastDetail {
 
 interface Episode {
   title: string
-  date: Date
+  date: string
   duration: string
 }

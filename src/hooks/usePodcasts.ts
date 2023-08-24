@@ -3,33 +3,37 @@ import { type Podcast } from '../models/Podcast.model'
 import { getTopPodcasts } from '../services/podcast'
 import {
   getPodcastsFromStorage,
-  getlastAPIFetchDateFromStorage,
-  savePodcastToStorage
+  getlastFetchDateFromStorage,
+  saveToStorage
 } from '../logic/storage'
-import { oneDayAgo } from '../logic/time'
+import { oneDaySinceLastFetch } from '../logic/time'
 
 export function usePodcasts (search: string) {
   const [podcasts, setPodcasts] = useState<Podcast[]>([])
 
   useEffect(() => {
-    const lastAPIFetchDate = getlastAPIFetchDateFromStorage() ?? Date.now()
+    const lastAPIFetchDate = getlastFetchDateFromStorage('lastPodcastsFetch')
+    const podcastFromStorage: Podcast[] = getPodcastsFromStorage()
 
-    if (oneDayAgo({ currentDate: Date.now(), lastAPIFetchDate })) {
+    if (
+      oneDaySinceLastFetch(lastAPIFetchDate) ||
+      podcastFromStorage.length === 0
+    ) {
       getTopPodcasts()
         .then((value) => {
           const podcasts = value as Podcast[]
           setPodcasts(podcasts)
-          savePodcastToStorage({
-            podcasts,
-            lastAPIFetchDate: new Date().getTime()
+          saveToStorage({
+            dataKey: 'podcasts',
+            data: podcasts,
+            lastAPIFetchKey: 'lastPodcastsFetch'
           })
         })
         .catch((err) => {
           console.error(err)
         })
     } else {
-      const podcasts = getPodcastsFromStorage()
-      setPodcasts(podcasts)
+      setPodcasts(podcastFromStorage)
     }
   }, [])
 

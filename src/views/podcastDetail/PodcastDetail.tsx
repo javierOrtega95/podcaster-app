@@ -1,7 +1,6 @@
 import { useLoaderData } from 'react-router'
 import { Card } from '../../components/card/Card'
 import { type PodcastDetail as IPodcastDetail } from '../../models/PodcastDetail.model'
-import { formatDateToDdMmYyyy } from '../../utils/date'
 import { totalSecondsToTimeFormat } from '../../utils/time'
 import { PodcastSidebar } from '../components/podcastSidebar/PodcastSidebar'
 import './podcastDetail.css'
@@ -37,7 +36,7 @@ export function PodcastDetail () {
                 return (
                   <tr key={index}>
                     <td>{episode.title}</td>
-                    <td>{formatDateToDdMmYyyy(episode.date)}</td>
+                    <td>{episode.date}</td>
                     <td>{totalSecondsToTimeFormat(episode.duration)}</td>
                   </tr>
                 )
