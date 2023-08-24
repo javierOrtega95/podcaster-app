@@ -6,5 +6,9 @@ interface Props {
 }
 
 export function Badge ({ children, style }: Props) {
-  return <span className='badge' style={style}>{children}</span>
+  return (
+    <span className='badge' style={style}>
+      {children}
+    </span>
+  )
 }

@@ -6,7 +6,7 @@ import {
 import { oneDaySinceLastFetch } from './logic/time'
 import { getPodcastDetail } from './services/podcast'
 import { Layout } from './views/components/layout/Layout'
-import { EpisodeDetail } from './views/episodeDetail/episodeDetail'
+import { EpisodeDetail } from './views/episodeDetail/EpisodeDetail'
 import { Home } from './views/home/Home'
 import { PodcastDetail } from './views/podcastDetail/PodcastDetail'
 

@@ -1,7 +1,15 @@
 import { type Podcast } from '../../models/Podcast.model'
 import { type PodcastDetail } from '../../models/PodcastDetail.model'
 
-export const saveToStorage = ({ dataKey, lastAPIFetchKey, data }: { dataKey: string, lastAPIFetchKey: string, data: Podcast[] | PodcastDetail }) => {
+export const saveToStorage = ({
+  dataKey,
+  lastAPIFetchKey,
+  data
+}: {
+  dataKey: string
+  lastAPIFetchKey: string
+  data: Podcast[] | PodcastDetail
+}) => {
   window.localStorage.setItem(dataKey, JSON.stringify(data))
   window.localStorage.setItem(lastAPIFetchKey, Date.now().toString())
 }
@@ -9,7 +17,9 @@ export const saveToStorage = ({ dataKey, lastAPIFetchKey, data }: { dataKey: str
 export const getlastFetchDateFromStorage = (key: string) => {
   const lastAPIFetchDate = window.localStorage.getItem(key)
 
-  return lastAPIFetchDate !== null ? parseInt(lastAPIFetchDate, 10) : Date.now()
+  return lastAPIFetchDate !== null
+    ? parseInt(lastAPIFetchDate, 10)
+    : Date.now()
 }
 
 export const getPodcastsFromStorage = () => {

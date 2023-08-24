@@ -12,11 +12,15 @@ export function PodcastSidebar ({ podcastDetail }: Props) {
   return (
     <aside className='podcast-sidebar'>
       <Card>
-        <Link to={`/podcast/${id}`}><img src={imageUrl} alt={`Image of ${title} podcast`} /></Link>
+        <Link to={`/podcast/${id}`}>
+          <img src={imageUrl} alt={`Image of ${title} podcast`} />
+        </Link>
         <div className='border' />
         <div className='body'>
           <h3 className='title'>{title}</h3>
-          <span className='author emphasized'><Link to={`/podcast/${id}`}>by {author}</Link></span>
+          <span className='author emphasized'>
+            <Link to={`/podcast/${id}`}>by {author}</Link>
+          </span>
         </div>
         <div className='border' />
         <div className='footer'>

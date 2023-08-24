@@ -38,9 +38,16 @@ export const getPodcastDetail = async (podcastId: string) => {
 
     const feedUrl = json.results[0].feedUrl
 
-    const podcastDetail = await getPodcastFeed(feedUrl, podcastId) as PodcastDetail
+    const podcastDetail = (await getPodcastFeed(
+      feedUrl,
+      podcastId
+    )) as PodcastDetail
 
-    saveToStorage({ dataKey: podcastId, data: podcastDetail, lastAPIFetchKey: 'lastPodcastDetailFetch' })
+    saveToStorage({
+      dataKey: podcastId,
+      data: podcastDetail,
+      lastAPIFetchKey: 'lastPodcastDetailFetch'
+    })
 
     return podcastDetail
   } catch (error) {

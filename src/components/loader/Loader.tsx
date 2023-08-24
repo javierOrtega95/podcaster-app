@@ -1,6 +1,5 @@
 import './loader.css'
+
 export function Loader () {
-  return (
-    <div className="ping"></div>
-  )
+  return <div className='ping'></div>
 }

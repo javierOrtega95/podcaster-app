@@ -12,9 +12,7 @@ export function Home () {
   return (
     <>
       <section className='search'>
-        <Badge style={{ marginRight: 8 }}>
-          {podcasts.length}
-        </Badge>
+        <Badge style={{ marginRight: 8 }}>{podcasts.length}</Badge>
         <PodcastSearch value={search} onSearch={updateSearch} />
       </section>
       <Podcasts podcasts={podcasts} />

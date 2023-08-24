@@ -21,7 +21,8 @@
   color: var(--primary);
 }
 
-.podcast-sidebar .body, .podcast-sidebar .footer {
+.podcast-sidebar .body,
+.podcast-sidebar .footer {
   text-align: left;
   padding-right: 1rem;
   padding-left: 1rem;
@@ -31,5 +32,3 @@
   font-size: var(--font-size-default);
   font-weight: bold;
 }
-
-
