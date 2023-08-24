@@ -1,0 +1,22 @@
+.episode-detail {
+  display: grid;
+  gap: 8rem;
+  grid-template-columns: 1fr 3fr;
+  margin-top: 32px;
+}
+
+.podcast-audio .card {
+  padding: 2rem;
+}
+
+.podcast-audio .title {
+  text-align: left;
+}
+
+.podcast-audio .episode-detail .body {
+  padding: 0 3rem;
+}
+
+.episode-detail audio {
+  width: 100%;
+}

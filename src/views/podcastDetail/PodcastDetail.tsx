@@ -4,20 +4,16 @@ import { type PodcastDetail as IPodcastDetail } from '../../models/PodcastDetail
 import { totalSecondsToTimeFormat } from '../../utils/time'
 import { PodcastSidebar } from '../components/podcastSidebar/PodcastSidebar'
 import './podcastDetail.css'
+import { Link } from 'react-router-dom'
 
 export function PodcastDetail () {
   const podcastDetail = useLoaderData() as IPodcastDetail
 
-  const { imageUrl, title, author, description, episodes } = podcastDetail
+  const { id, episodes } = podcastDetail
 
   return (
     <section className='podcast-detail'>
-      <PodcastSidebar
-        imageUrl={imageUrl}
-        title={title}
-        author={author}
-        description={description}
-      />
+      <PodcastSidebar podcastDetail={podcastDetail} />
       <article className='podcast-episodes'>
         <Card>
           <h2 className='title'>Episodes: {episodes.length}</h2>
@@ -32,10 +28,14 @@ export function PodcastDetail () {
               </tr>
             </thead>
             <tbody>
-              {episodes.map((episode, index) => {
+              {episodes.map((episode) => {
                 return (
-                  <tr key={index}>
-                    <td>{episode.title}</td>
+                  <tr key={episode.id}>
+                    <td>
+                      <Link to={`/podcast/${id}/episode/${episode.id}`}>
+                        {episode.title}
+                      </Link>
+                    </td>
                     <td>{episode.date}</td>
                     <td>{totalSecondsToTimeFormat(episode.duration)}</td>
                   </tr>

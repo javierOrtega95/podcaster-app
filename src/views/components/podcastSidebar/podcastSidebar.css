@@ -17,6 +17,10 @@
   padding-bottom: 0.5rem;
 }
 
+.podcast-sidebar .body .author a {
+  color: var(--primary);
+}
+
 .podcast-sidebar .body, .podcast-sidebar .footer {
   text-align: left;
   padding-right: 1rem;

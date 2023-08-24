@@ -7,8 +7,11 @@ export interface PodcastDetail {
   episodes: Episode[]
 }
 
-interface Episode {
+export interface Episode {
+  id: string
   title: string
+  description: string
   date: string
   duration: string
+  audioUrl: string
 }

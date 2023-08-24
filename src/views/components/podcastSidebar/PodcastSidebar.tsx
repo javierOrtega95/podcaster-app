@@ -1,27 +1,22 @@
+import { Link } from 'react-router-dom'
 import { Card } from '../../../components/card/Card'
+import { type PodcastDetail } from '../../../models/PodcastDetail.model'
 import './podcastSidebar.css'
 
 interface Props {
-  imageUrl: string
-  description: string
-  author: string
-  title: string
+  podcastDetail: PodcastDetail
 }
 
-export function PodcastSidebar ({
-  imageUrl,
-  title,
-  author,
-  description
-}: Props) {
+export function PodcastSidebar ({ podcastDetail }: Props) {
+  const { id, title, imageUrl, author, description } = podcastDetail
   return (
     <aside className='podcast-sidebar'>
       <Card>
-        <img src={imageUrl} alt={`Image of ${title} podcast`} />
+        <Link to={`/podcast/${id}`}><img src={imageUrl} alt={`Image of ${title} podcast`} /></Link>
         <div className='border' />
         <div className='body'>
           <h3 className='title'>{title}</h3>
-          <span className='emphasized'>by {author}</span>
+          <span className='author emphasized'><Link to={`/podcast/${id}`}>by {author}</Link></span>
         </div>
         <div className='border' />
         <div className='footer'>

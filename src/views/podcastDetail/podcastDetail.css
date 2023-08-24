@@ -17,18 +17,22 @@
 }
 
 .podcast-episodes .card:first-child {
-  
   margin-bottom: 12px;
 }
 
 .podcast-detail table {
   width: 100%;
   text-align: left;
-  padding:1rem;
+  padding: 1rem;
 }
 
 .podcast-detail table thead tr {
   margin-bottom: 4px;
+}
+
+.podcast-detail table tbody a {
+  font-weight: bold;
+  color: var(--primary);
 }
 
 .podcast-detail table thead tr th:first-child {
