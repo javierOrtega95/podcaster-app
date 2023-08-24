@@ -3,7 +3,7 @@
 }
 
 .podcast-audio .card {
-  padding: 2rem;
+  padding: 0.5rem 2rem;
 }
 
 .podcast-audio .title {
@@ -16,4 +16,5 @@
 
 .episode-detail audio {
   width: 100%;
+  padding: 1rem 0;
 }

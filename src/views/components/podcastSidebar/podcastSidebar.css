@@ -7,11 +7,6 @@
   margin: 0;
 }
 
-.podcast-sidebar .border {
-  border-top: 2px solid var(--color-light-gray);
-  margin: 8px;
-}
-
 .podcast-sidebar .body {
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;

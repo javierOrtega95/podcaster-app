@@ -25,6 +25,7 @@ export function EpisodeDetail () {
           <h2 className='title'>{episode?.title}</h2>
           <div className='body'>
             <p className='emphasized'>{episode?.description}</p>
+            <div className='border' />
             <audio controlsList='nodownload' controls>
               <source src={episode?.audioUrl} type='audio/mpeg' />
             </audio>

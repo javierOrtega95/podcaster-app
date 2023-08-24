@@ -67,3 +67,8 @@ a {
   gap: 5rem;
   grid-template-columns: 1fr 3fr;
 }
+
+.border {
+  border-top: 2px solid var(--color-light-gray);
+  margin: 8px;
+}
